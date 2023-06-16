@@ -1,0 +1,23 @@
+{
+    "name": "marcorieser/tailwind-merge-statamic",
+    "autoload": {
+        "psr-4": {
+            "MarcoRieser\\TailwindMergeStatamic\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Tailwind Merge Statamic",
+            "description": "Tailwind Merge Statamic addon"
+        },
+        "laravel": {
+            "providers": [
+                "MarcoRieser\\TailwindMergeStatamic\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "gehrisandro/tailwind-merge-laravel": "^0.1.0",
+        "statamic/cms": "^4.0"
+    }
+}
