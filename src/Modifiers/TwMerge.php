@@ -7,8 +7,12 @@ use TailwindMerge\Laravel\Facades\TailwindMerge;
 
 class TwMerge extends Modifier
 {
-    public function index($value): string
+    public function index($value, $params, $context): string
     {
-        return TailwindMerge::merge($value);
+        $selector = $params[0] ?? 'class';
+
+        $classesToMerge = $selector !== false ? $context[$selector] ?? '' : '';
+dump([$selector,$classesToMerge]);
+        return TailwindMerge::merge($value, $classesToMerge);
     }
 }
