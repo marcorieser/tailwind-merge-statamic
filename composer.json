@@ -1,5 +1,6 @@
 {
     "name": "marcorieser/tailwind-merge-statamic",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "MarcoRieser\\TailwindMergeStatamic\\": "src"
@@ -8,7 +9,7 @@
     "extra": {
         "statamic": {
             "name": "Tailwind Merge Statamic",
-            "description": "Tailwind Merge Statamic addon"
+            "description": "Automatically resolves Tailwind CSS class conflicts in Statamic"
         },
         "laravel": {
             "providers": [
