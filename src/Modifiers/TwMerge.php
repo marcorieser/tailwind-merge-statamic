@@ -9,13 +9,11 @@ class TwMerge extends Modifier
 {
     public function index($value, $params, $context): string
     {
-        $params = collect($params ?: ['class']);
-
-        if ($params->contains(false)) {
+        if (!$params) {
             return TailwindMerge::merge($value);
         }
 
-        $classes = $params
+        $classes = collect($params)
             ->map(fn($variable) => $context[$variable] ?? '')
             ->filter()
             ->all();
