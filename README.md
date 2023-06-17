@@ -9,7 +9,7 @@ This addon allows you to merge multiple [Tailwind CSS](https://tailwindcss.com/)
 This addon provides:
 
 - An Antlers modifier for merging the Tailwind CSS classes
-- Installs [`tailwind-merge-laravel`](https://github.com/gehrisandro/tailwind-merge-laravel) for making usage of the features outside of Antlers
+- Installs the [`tailwind-merge-laravel`](https://github.com/gehrisandro/tailwind-merge-laravel) package which provides the merge functionality within the Laravel context.
 
 ## Installation
 
@@ -21,31 +21,40 @@ composer require marcorieser/tailwind-merge-statamic
 
 ## How to Use
 
-Just apply the modifier to your existing classes. <br>
-By default, the modifier uses the value of `class` in the current level of the cascade for merging.
+> Keep in mind: Later applied classes overrule previous ones.
+
+Just apply the modifier to your existing Tailwind CSS classes.  
 ```antlers
 <div class="{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge }}"></div>
 ```
 
- However, you can use a different variable by passing its name as parameter to the modifier.
+It's possible to pass the classes as a string, as array or a combination of both:  
 ```antlers
-<div class="{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge('my_variable_name') }}"></div>
+{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge }}
+{{ ['w-10', 'h-10', 'rounded-full', 'bg-red-500'] | tw_merge }}
+{{ ['w-10', 'h-10', ['rounded-full', 'bg-red-500']] | tw_merge }}
 ```
 
-Additionally, you can disable the usage of a variable in the cascade completely by passing `false` as parameter. <br>
-This allows you to pass the variable directly in the classes string:
+By default, the modifier uses the `class` variable at the current level of the cascade for merging:
 ```antlers
-<div class="{{ 'w-10 h-10 rounded-full bg-red-500 {class}' | tw_merge(false) }}"></div>
+{{# these lines are identical #}}
+{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge }}
+{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge('class') }}
 ```
 
-Or merging arrays of classes:
+ You can use different variables by passing its names as parameters to the modifier:
 ```antlers
-<div class="{{ [ 'w-10', 'h-10', 'rounded-full', 'bg-red-500', class, some_other_variable ] | tw_merge(false) }}"></div>
+{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge('variable_1', 'variable_2') }}
+```
+
+If you want, you can disable the behavior of automatically resolving variables from the cascade entirely by passing `false` as parameter and handle everything on your own as seen below.
+```antlers
+{{ 'w-10 h-10 rounded-full bg-red-500 {class} {other_classes}' | tw_merge(false) }}
 ```
 
 
 ## Documentation
-There is currently not more to that addon as written above but the underlying Laravel package is capable of so much more. <br> Please have a look at its [GitHub Repo](https://github.com/gehrisandro/tailwind-merge-laravel).
+There is currently not more to that addon as written above but the underlying Laravel package is capable of so much more. Please have a look at its [GitHub Repo](https://github.com/gehrisandro/tailwind-merge-laravel).
 
 ## Credits
-Huge thanks to [Sandro Gehri](https://github.com/gehrisandro) for providing all of these features.
+Huge thanks to [Sandro Gehri](https://github.com/gehrisandro) for providing that awesome Laravel package.
