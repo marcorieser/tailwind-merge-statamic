@@ -12,7 +12,7 @@ class TwMerge extends Modifier
         $selector = $params[0] ?? 'class';
 
         $classesToMerge = $selector !== false ? $context[$selector] ?? '' : '';
-dump([$selector,$classesToMerge]);
+
         return TailwindMerge::merge($value, $classesToMerge);
     }
 }
