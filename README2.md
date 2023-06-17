@@ -33,16 +33,16 @@ Create your class string as you normally do and apply the modifier which then re
 <div class="w-8 h-10 rounded-full bg-blue-500"></div>
 ```
 
+Alternatively, if you prefer that, you can pass the names of the variables as params to the modifier and remove them in your class string:
+```antlers
+<div class="{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge('varable_holding_classes', 'another_variable') }}"></div>
+```
+
 It is possible to apply the modifier to a string, an array or a combination of both:  
 ```antlers
 {{ 'w-10 h-10 rounded-full bg-red-500 {variable}' | tw_merge }}
 {{ ['w-10', 'h-10', 'rounded-full', 'bg-red-500',  '{variable}'] | tw_merge }}
 {{ ['w-10', 'h-10', ['rounded-full', 'bg-red-500'], '{variable}'] | tw_merge }}
-```
-
-Alternatively you can pass the names of the variables as params to the modifier and remove them in your class string:
-```antlers
-<div class="{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge('varable_holding_classes', 'another_variable') }}"></div>
 ```
 
 ## Documentation
