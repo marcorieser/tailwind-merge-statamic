@@ -9,10 +9,17 @@ class TwMerge extends Modifier
 {
     public function index($value, $params, $context): string
     {
-        $selector = $params[0] ?? 'class';
+        $params = collect($params ?: ['class']);
 
-        $classesToMerge = $selector !== false ? $context[$selector] ?? '' : '';
+        if ($params->contains(false)) {
+            return TailwindMerge::merge($value);
+        }
 
-        return TailwindMerge::merge($value, $classesToMerge);
+        $classes = $params
+            ->map(fn($variable) => $context[$variable] ?? '')
+            ->filter()
+            ->all();
+
+        return TailwindMerge::merge($value, $classes);
     }
 }
