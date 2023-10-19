@@ -18,7 +18,7 @@
         }
     },
     "require": {
-        "gehrisandro/tailwind-merge-laravel": "^0.1.0",
+        "gehrisandro/tailwind-merge-laravel": "^1.0.0",
         "statamic/cms": "^4.0"
     }
 }
