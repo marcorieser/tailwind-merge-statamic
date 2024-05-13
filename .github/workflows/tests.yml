@@ -8,8 +8,8 @@ jobs:
   php_tests:
     strategy:
       matrix:
-        php: [8.2, 8.3]
-        laravel: [10.*, 11.*]
+        php: [8.3]
+        laravel: [11.*]
         os: [ubuntu-latest]
 
     name: ${{ matrix.php }} - ${{ matrix.laravel }}
