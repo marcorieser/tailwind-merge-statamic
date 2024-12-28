@@ -27,9 +27,7 @@ Create your class string as you normally do and apply the modifier which then re
 
 ```antlers
 {{ varable_holding_classes = 'bg-blue-500 w-8' }}
-
 <div class="{{ 'w-10 h-10 rounded-full bg-red-500 {varable_holding_classes}' | tw_merge }}"></div>
-
 {{# output #}}
 <div class="w-8 h-10 rounded-full bg-blue-500"></div>
 ```
