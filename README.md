@@ -24,6 +24,7 @@ composer require marcorieser/tailwind-merge-statamic
 > Keep in mind: Later applied classes overrule previous ones.
 
 Create your class string as you normally do and apply the modifier which then removes the conflicting classes:
+
 ```antlers
 {{ varable_holding_classes = 'bg-blue-500 w-8' }}
 
@@ -34,11 +35,13 @@ Create your class string as you normally do and apply the modifier which then re
 ```
 
 Alternatively, you can pass the names of the variables as params to the modifier and omit them in your class string:
+
 ```antlers
 <div class="{{ 'w-10 h-10 rounded-full bg-red-500' | tw_merge('varable_holding_classes', 'another_variable') }}"></div>
 ```
 
 It is possible to apply the modifier to a string, an array or a combination of both:
+
 ```antlers
 {{ 'w-10 h-10 rounded-full bg-red-500 {variable}' | tw_merge }}
 {{ ['w-10', 'h-10', 'rounded-full', 'bg-red-500',  '{variable}'] | tw_merge }}
