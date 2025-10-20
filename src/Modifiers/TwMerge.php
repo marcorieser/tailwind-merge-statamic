@@ -3,7 +3,7 @@
 namespace MarcoRieser\TailwindMergeStatamic\Modifiers;
 
 use Statamic\Modifiers\Modifier;
-use TailwindMerge\Laravel\Facades\TailwindMerge;
+use Lumen\TwMerge\Facades\TwMerge as TailwindMerge;
 
 class TwMerge extends Modifier
 {
