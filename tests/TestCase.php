@@ -2,20 +2,19 @@
 
 namespace MarcoRieser\TailwindMergeStatamic\Tests;
 
+use Lumen\TwMerge\TwMergeServiceProvider;
 use MarcoRieser\TailwindMergeStatamic\ServiceProvider;
-use Statamic\Providers\StatamicServiceProvider;
 use Statamic\Testing\AddonTestCase;
-use TailwindMerge\Laravel\TailwindMergeServiceProvider;
 
 abstract class TestCase extends AddonTestCase
 {
     protected string $addonServiceProvider = ServiceProvider::class;
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         $serviceProviders = parent::getPackageProviders($app);
 
-        $serviceProviders[] = TailwindMergeServiceProvider::class;
+        $serviceProviders[] = TwMergeServiceProvider::class;
 
         return $serviceProviders;
     }
