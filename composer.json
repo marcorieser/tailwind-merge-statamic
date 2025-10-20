@@ -12,7 +12,7 @@
         }
     },
     "require": {
-        "lumen-ui/lumen-tw": "^0.3.0",
+        "gehrisandro/tailwind-merge-laravel": "^1.0.0",
         "statamic/cms": "^4.0|^5.0|^6.0"
     },
     "require-dev": {
