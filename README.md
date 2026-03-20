@@ -9,7 +9,7 @@ This addon allows you to merge multiple [Tailwind CSS](https://tailwindcss.com/)
 This addon provides:
 
 - An Antlers modifier for merging the Tailwind CSS classes.
-- Installs the [`tailwind-merge-laravel`](https://github.com/gehrisandro/tailwind-merge-laravel) package which provides the merge functionality within the Laravel context.
+- Installs the [`tailwind-merge-laravel`](https://github.com/marcorieser/tailwind-merge-laravel) package which provides the merge functionality within the Laravel context.
 
 ## Installation
 
@@ -49,7 +49,4 @@ It is possible to apply the modifier to a string, an array or a combination of b
 ```
 
 ## Documentation
-There is currently not more to that addon as written above but the underlying Laravel package is capable of so much more. Please have a look at its [GitHub Repo](https://github.com/gehrisandro/tailwind-merge-laravel).
-
-## Credits
-Huge thanks to [Sandro Gehri](https://github.com/gehrisandro) for providing that awesome Laravel package.
+There is currently not more to that addon as written above, but the underlying Laravel package is capable of so much more. Please have a look at its [GitHub Repo](https://github.com/marcorieser/tailwind-merge-laravel).
