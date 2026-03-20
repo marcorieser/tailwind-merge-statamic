@@ -2,8 +2,8 @@
 
 namespace MarcoRieser\TailwindMergeStatamic\Modifiers;
 
+use MarcoRieser\TailwindMergeLaravel\Facades\TailwindMerge;
 use Statamic\Modifiers\Modifier;
-use TailwindMerge\Laravel\Facades\TailwindMerge;
 
 class TwMerge extends Modifier
 {

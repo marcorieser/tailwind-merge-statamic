@@ -8,11 +8,19 @@ jobs:
   php_tests:
     strategy:
       matrix:
-        php: [8.2, 8.3]
-        laravel: [11.*]
+        php: [8.2, 8.3, 8.4, 8.5]
+        statamic: [5.*, 6.*]
+        laravel: [11.*, 12.*, 13.*]
         os: [ubuntu-latest]
+        exclude:
+          - laravel: 11.*
+            statamic: 6.*
+          - laravel: 13.*
+            statamic: 5.*
+          - laravel: 13.*
+            php: 8.2
 
-    name: ${{ matrix.php }} - ${{ matrix.laravel }}
+    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - Statamic ${{ matrix.statamic }}
 
     runs-on: ${{ matrix.os }}
 
@@ -29,6 +37,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+          composer require "statamic/cms:${{ matrix.statamic }}" --no-interaction --no-update
           composer install --no-interaction
 
       - name: Run PHPUnit
