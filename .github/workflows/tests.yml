@@ -13,8 +13,10 @@ jobs:
         laravel: [11.*, 12.*, 13.*]
         os: [ubuntu-latest]
         exclude:
-          - statamic: 6.*
-            laravel: 11.*
+          - laravel: 11.*
+            statamic: 6.*
+          - laravel: 13.*
+            php: 8.2
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - Statamic ${{ matrix.statamic }}
 
